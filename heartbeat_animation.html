@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow: hidden;
+        }
+
+        .heartbeat_container {
+            height: 100vh;
+            width: 100vw;
+            display: grid;
+            place-items: center;
+            background-color: #464623;
+            border: 2 px solid black;
+        }
+
+        .heartbeat {
+            position: relative;
+            height: 10rem;
+            width: 10rem;
+            background-color: red;
+            transform: translateY(-50%);
+            transform: rotate(45deg);
+            box-shadow: 0px 0px 23px 12px rgba(105, 31, 31, 0.75);
+            -webkit-box-shadow: 0px 0px 23px 12px rgba(105, 31, 31, 0.75);
+            -moz-box-shadow: 0px 0px 23px 12px rgba(105, 31, 31, 0.75);
+            animation: heartbeat_animation 1s linear infinite;
+        }
+
+        @keyframes heartbeat_animation {
+            0% {
+                transform: scale(1) rotate(45deg);
+            }
+
+            20% {
+                transform: scale(1.4) rotate(45deg);
+            }
+
+            40% {
+                transform: scale(1.2) rotate(45deg);
+            }
+
+            60% {
+                transform: scale(1.2) rotate(45deg);
+            }
+
+            80% {
+                transform: scale(1.4) rotate(45deg);
+            }
+
+            100% {
+                transform: scale(1) rotate(45deg);
+            }
+        }
+
+        .heartbeat::before {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            background-color: red;
+            transform: translateY(-50%);
+
+
+
+        }
+
+        .heartbeat::after {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            background-color: red;
+            transform: translateX(-50%);
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="heartbeat_container">
+        <div class="heartbeat">
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar Template</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Suez+One&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-clr: #CAD5E2;
+      --text-clr: #0D0D0D;
+      --btn-font: 2rem;
+      --logo-font: minmax(2rem, 3rem);
+      --body-text-font: 2.5rem;
+      --signup-bg: #35BDD0;
+      --login-bg: #FF6666;
+    }
+
+    html {
+      font-size: 62.5%;
+    }
+
+    body {
+      color: var(--text-clr);
+      font-size: 2.5rem;
+      background-color: lightcyan;
+      font-family: 'PT Sans Narrow', sans-serif;
+    }
+
+    .main_nav {
+      position: sticky;
+      top: 0;
+      display: flex;
+      background-color: var(--bg-clr);
+      height: 8vh;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    #logo {
+      font-size: var(--logo-font);
+      margin: auto;
+      letter-spacing: .5rem;
+      font-family: 'Suez One', serif;
+    }
+
+    .nav_links {
+      display: flex;
+      align-items: center;
+      width: 70%;
+      justify-content: space-around;
+    }
+
+    .btn {
+      display: flex;
+    }
+
+    .btn>* {
+      padding: 1rem;
+      width: 10rem;
+      border-radius: 1rem;
+      font-size: 2rem;
+      color: var(--text-clr);
+
+    }
+
+    .login {
+      margin-right: 2rem;
+      background-color: var(--login-bg);
+    }
+
+    .signup {
+      margin-left: 2rem;
+      background-color: var(--signup-bg);
+    }
+
+    .nav_links li {
+      list-style: none;
+    }
+
+    .nav_links li a {
+      text-decoration: none;
+      color: var(--text-clr);
+    }
+
+    .burger {
+      cursor: pointer;
+      display: none;
+    }
+
+    .burger>div {
+      height: .6rem;
+      width: 3.5rem;
+      margin: 6px;
+      background-color: black;
+    }
+
+    /* resposive code */
+    @media (max-width:1180px) {
+      body {
+        overflow-x: hidden;
+      }
+
+      .btn {
+        flex-direction: column;
+
+      }
+
+      .btn>* {
+        margin: 0;
+        margin: 2rem 0rem;
+      }
+
+      .burger {
+        display: block;
+        margin: auto;
+      }
+
+      .nav_links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 8vh;
+        right: 0;
+        height: 92vh;
+        width: 50%;
+        background-color: var(--bg-clr);
+        transform: translateX(100%);
+      }
+
+    }
+
+    .nav_active {
+      display: flex;
+      transform: translateX(0%);
+
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="main_nav">
+      <div id="logo">Tulashi university</div>
+
+      <ul class="nav_links">
+        <li><a href="">Home</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Contact Us</a></li>
+        <li><a href="">Services</a></li>
+        <div class="btn">
+          <button class="login">Login</button>
+          <button class="signup">Sign Up</button>
+        </div>
+        </div>
+      </ul>
+
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+  </header>
+  <script>
+
+    const burger = document.querySelector('.burger');
+    const nav_ul = document.querySelector('.nav_links');
+
+    function navResponse() {
+      burger.addEventListener('click', () => {
+        nav_ul.classList.toggle('nav_active');
+      })
+    }
+
+    navResponse();
+
+  </script>
+</body>
+
+</html>
